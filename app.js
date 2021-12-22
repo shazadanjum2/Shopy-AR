@@ -48,8 +48,8 @@ class App{
         this.scene.add( this.reticle );
 
         //this.controls = new OrbitControls( this.camera, this.renderer.domElement );
-        this.controls =  new THREE.OrbitControls( camera, renderer.domElement );
-        this.controls.autoRotate = true;
+        // this.controls =  new THREE.OrbitControls( camera, renderer.domElement );
+        // this.controls.autoRotate = true;
         
         this.setupXR();
 
@@ -266,7 +266,7 @@ class App{
             if ( this.hitTestSource ) this.getHitTestResults( frame );
         }
 
-        this.controls.update();
+        //this.controls.update();
 
         this.renderer.render( this.scene, this.camera );
 
