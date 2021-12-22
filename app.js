@@ -238,11 +238,13 @@ class App{
     
 	render( timestamp, frame ) {
 
-        if ( frame ) {
-            if ( this.hitTestSourceRequested === false ) this.requestHitTestSource( )
+        // if ( frame ) {
+        //     if ( this.hitTestSourceRequested === false ) this.requestHitTestSource( )
 
-            if ( this.hitTestSource ) this.getHitTestResults( frame );
-        }
+        //     if ( this.hitTestSource ) this.getHitTestResults( frame );
+        // }
+
+        this.chair.rotateY( 0.01 );
 
         this.renderer.render( this.scene, this.camera );
 
