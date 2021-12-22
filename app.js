@@ -44,8 +44,8 @@ class App{
             new THREE.MeshBasicMaterial()
         );
         
-        this.reticle.matrixAutoUpdate = true;
-        this.reticle.visible = true;
+        this.reticle.matrixAutoUpdate = false;
+        this.reticle.visible = false;
         this.scene.add( this.reticle );
 
         //this.controls = new OrbitControls( this.camera, this.renderer.domElement );
@@ -150,6 +150,8 @@ class App{
                 self.chair.visible = false; 
                 
                 self.loadingBar.visible = false;
+
+         
 
                 self.renderer.setAnimationLoop( self.render.bind(self) );
 			},
@@ -267,9 +269,13 @@ class App{
             if ( this.hitTestSource ) this.getHitTestResults( frame );
         }
 
-        //this.controls.update();
+        
 
         this.renderer.render( this.scene, this.camera );
+        
+        this.controls =  new THREE.OrbitControls( camera, renderer.domElement );
+        this.controls.autoRotate = true;
+        this.controls.update();
 
     }
 }
