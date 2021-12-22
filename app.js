@@ -151,9 +151,9 @@ class App{
                 
                 self.loadingBar.visible = false;
 
-                this.controls =  new THREE.OrbitControls( camera, renderer.domElement );
-                this.controls.target.set(0, 3.5, 0);
-                this.controls.update();
+                // this.controls =  new THREE.OrbitControls( camera, renderer.domElement );
+                // this.controls.target.set(0, 3.5, 0);
+                // this.controls.update();
 
                 self.renderer.setAnimationLoop( self.render.bind(self) );
 			},
