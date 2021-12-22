@@ -120,6 +120,10 @@ class App{
     
 	showChair(id){
         this.initAR();
+
+        this.controls = new OrbitControls( this.camera, this.renderer.domElement );
+        this.controls.target.set(0, 3.5, 0);
+        this.controls.update();
         
 		const loader = new GLTFLoader( ).setPath(this.assetsPath);
         const self = this;
