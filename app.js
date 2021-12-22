@@ -46,6 +46,9 @@ class App{
         this.reticle.matrixAutoUpdate = false;
         this.reticle.visible = false;
         this.scene.add( this.reticle );
+
+        this.controls = new OrbitControls( this.camera, this.renderer.domElement );
+        controls.autoRotate = true;
         
         this.setupXR();
 
@@ -120,9 +123,9 @@ class App{
     
 	showChair(id){
 
-        this.controls = new OrbitControls( this.camera, this.renderer.domElement );
-        this.controls.target.set(0, 3.5, 0);
-        this.controls.update();
+//        this.controls = new OrbitControls( this.camera, this.renderer.domElement );
+        //this.controls.target.set(0, 3.5, 0);
+       // this.controls.update();
         
 
         this.initAR();
