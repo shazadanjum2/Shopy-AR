@@ -119,12 +119,14 @@ class App{
     }
     
 	showChair(id){
-        this.initAR();
 
         this.controls = new OrbitControls( this.camera, this.renderer.domElement );
         this.controls.target.set(0, 3.5, 0);
         this.controls.update();
         
+
+        this.initAR();
+
 		const loader = new GLTFLoader( ).setPath(this.assetsPath);
         const self = this;
         
@@ -260,9 +262,9 @@ class App{
             if ( this.hitTestSource ) this.getHitTestResults( frame );
         }
 
+        this.controls.update();
 
         this.renderer.render( this.scene, this.camera );
-       // this.controls.update();
 
     }
 }
