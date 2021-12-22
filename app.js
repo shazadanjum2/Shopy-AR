@@ -49,10 +49,7 @@ class App{
         
         this.setupXR();
 
-        this.controls = new OrbitControls( this.camera, this.renderer.domElement );
-        this.controls.target.set(0, 3.5, 0);
-        this.controls.update();
-		
+
 		window.addEventListener('resize', this.resize.bind(this) );
         
 	}
@@ -60,6 +57,9 @@ class App{
     setupXR(){
         this.renderer.xr.enabled = true;
         
+       
+		
+
         if ( 'xr' in navigator ) {
 
 			navigator.xr.isSessionSupported( 'immersive-ar' ).then( ( supported ) => {
@@ -139,8 +139,6 @@ class App{
                 self.chair.visible = false; 
                 
                 self.loadingBar.visible = false;
-                
-                
 
                 self.renderer.setAnimationLoop( self.render.bind(self) );
 			},
