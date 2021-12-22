@@ -4,10 +4,9 @@ import { RGBELoader } from './libs/three/jsm/RGBELoader.js';
 import { ARButton } from './libs/ARButton.js';
 import { LoadingBar } from './libs/LoadingBar.js';
 import { ControllerGestures } from './libs/three125/ControllerGestures.js';
-
 import { Player } from './libs/three125/Player.js';
-import { OrbitControls } from './libs/three125/OrbitControls.js';
-
+//import { ControllerGestures } from '../../libs/three125/ControllerGestures.js'; 
+//import { Player } from '../../libs/three125/Player.js';
 
 class App{
 	constructor(){
@@ -81,69 +80,6 @@ class App{
             }
         }
 
-// gestures star
-
-        this.gestures = new ControllerGestures( this.renderer );
-        this.gestures.addEventListener( 'tap', (ev)=>{
-            console.log( 'tap' ); 
-           // self.ui.updateElement('info', 'tap' );
-            if (!self.knight.object.visible){
-                self.knight.object.visible = true;
-                self.knight.object.position.set( 0, -0.3, -0.5 ).add( ev.position );
-                self.scene.add( self.knight.object ); 
-            }
-        });
-        this.gestures.addEventListener( 'doubletap', (ev)=>{
-            //console.log( 'doubletap'); 
-           // self.ui.updateElement('info', 'doubletap' );
-        });
-        this.gestures.addEventListener( 'press', (ev)=>{
-            //console.log( 'press' );    
-           // self.ui.updateElement('info', 'press' );
-        });
-        this.gestures.addEventListener( 'pan', (ev)=>{
-            //console.log( ev );
-            if (ev.initialise !== undefined){
-                self.startPosition = self.knight.object.position.clone();
-            }else{
-                const pos = self.startPosition.clone().add( ev.delta.multiplyScalar(3) );
-                self.knight.object.position.copy( pos );
-                //self.ui.updateElement('info', `pan x:${ev.delta.x.toFixed(3)}, y:${ev.delta.y.toFixed(3)}, x:${ev.delta.z.toFixed(3)}` );
-            } 
-        });
-        this.gestures.addEventListener( 'swipe', (ev)=>{
-            //console.log( ev );   
-            //self.ui.updateElement('info', `swipe ${ev.direction}` );
-            if (self.knight.object.visible){
-                self.knight.object.visible = false;
-                self.scene.remove( self.knight.object ); 
-            }
-        });
-        this.gestures.addEventListener( 'pinch', (ev)=>{
-            //console.log( ev );  
-            if (ev.initialise !== undefined){
-                self.startScale = self.knight.object.scale.clone();
-            }else{
-                const scale = self.startScale.clone().multiplyScalar(ev.scale);
-                self.knight.object.scale.copy( scale );
-               // self.ui.updateElement('info', `pinch delta:${ev.delta.toFixed(3)} scale:${ev.scale.toFixed(2)}` );
-            }
-        });
-        this.gestures.addEventListener( 'rotate', (ev)=>{
-            //      sconsole.log( ev ); 
-            if (ev.initialise !== undefined){
-                self.startQuaternion = self.knight.object.quaternion.clone();
-            }else{
-                self.knight.object.quaternion.copy( self.startQuaternion );
-                self.knight.object.rotateY( ev.theta );
-                //self.ui.updateElement('info', `rotate ${ev.theta.toFixed(3)}`  );
-            }
-        });
-
-        this.renderer.setAnimationLoop( this.render2.bind(this) );
-
-//gestures end
-
         this.controller = this.renderer.xr.getController( 0 );
         this.controller.addEventListener( 'select', onSelect );
         
@@ -196,6 +132,87 @@ class App{
                 
                 self.loadingBar.visible = false;
                 
+                // knight
+                const options = {
+					object: object,
+					speed: 0.5,
+					animations: gltf.animations,
+					clip: gltf.animations[0],
+					app: self,
+					name: 'knight',
+					npc: false
+				};
+				
+				self.knight = new Player(options);
+                self.knight.object.visible = false;
+				
+				//self.knight.action = 'Dance';
+				const scale = 0.003;
+				self.knight.object.scale.set(scale, scale, scale); 
+				
+
+                // gesture start
+
+                this.gestures = new ControllerGestures( this.renderer );
+                this.gestures.addEventListener( 'tap', (ev)=>{
+                    console.log( 'tap' ); 
+                    self.ui.updateElement('info', 'tap' );
+                    if (!self.knight.object.visible){
+                        self.knight.object.visible = true;
+                        self.knight.object.position.set( 0, -0.3, -0.5 ).add( ev.position );
+                        self.scene.add( self.knight.object ); 
+                    }
+                });
+                this.gestures.addEventListener( 'doubletap', (ev)=>{
+                    //console.log( 'doubletap'); 
+                    //self.ui.updateElement('info', 'doubletap' );
+                });
+                this.gestures.addEventListener( 'press', (ev)=>{
+                    //console.log( 'press' );    
+                   // self.ui.updateElement('info', 'press' );
+                });
+                this.gestures.addEventListener( 'pan', (ev)=>{
+                    //console.log( ev );
+                    if (ev.initialise !== undefined){
+                        self.startPosition = self.knight.object.position.clone();
+                    }else{
+                        const pos = self.startPosition.clone().add( ev.delta.multiplyScalar(3) );
+                        self.knight.object.position.copy( pos );
+                        //self.ui.updateElement('info', `pan x:${ev.delta.x.toFixed(3)}, y:${ev.delta.y.toFixed(3)}, x:${ev.delta.z.toFixed(3)}` );
+                    } 
+                });
+                this.gestures.addEventListener( 'swipe', (ev)=>{
+                    //console.log( ev );   
+                    self.ui.updateElement('info', `swipe ${ev.direction}` );
+                    if (self.knight.object.visible){
+                        self.knight.object.visible = false;
+                        self.scene.remove( self.knight.object ); 
+                    }
+                });
+                this.gestures.addEventListener( 'pinch', (ev)=>{
+                    //console.log( ev );  
+                    if (ev.initialise !== undefined){
+                        self.startScale = self.knight.object.scale.clone();
+                    }else{
+                        const scale = self.startScale.clone().multiplyScalar(ev.scale);
+                        self.knight.object.scale.copy( scale );
+                      //  self.ui.updateElement('info', `pinch delta:${ev.delta.toFixed(3)} scale:${ev.scale.toFixed(2)}` );
+                    }
+                });
+                this.gestures.addEventListener( 'rotate', (ev)=>{
+                    //      sconsole.log( ev ); 
+                    if (ev.initialise !== undefined){
+                        self.startQuaternion = self.knight.object.quaternion.clone();
+                    }else{
+                        self.knight.object.quaternion.copy( self.startQuaternion );
+                        self.knight.object.rotateY( ev.theta );
+                     //   self.ui.updateElement('info', `rotate ${ev.theta.toFixed(3)}`  );
+                    }
+                });
+
+              //  gesture end
+
+
                 self.renderer.setAnimationLoop( self.render.bind(self) );
 			},
 			// called while loading is progressing
@@ -312,19 +329,17 @@ class App{
             if ( this.hitTestSource ) this.getHitTestResults( frame );
         }
 
-        this.renderer.render( this.scene, this.camera );
-
-    }
-
-    render2( ) {   
-        const dt = this.clock.getDelta();
+       // const dt = this.clock.getDelta();
         this.stats.update();
         if ( this.renderer.xr.isPresenting ){
             this.gestures.update();
             //this.ui.update();
         }
+
         if ( this.knight !== undefined ) this.knight.update(dt);
+
         this.renderer.render( this.scene, this.camera );
+
     }
 }
 
