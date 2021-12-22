@@ -47,8 +47,9 @@ class App{
         this.reticle.visible = false;
         this.scene.add( this.reticle );
 
-        this.controls = new OrbitControls( this.camera, this.renderer.domElement );
-        controls.autoRotate = true;
+        //this.controls = new OrbitControls( this.camera, this.renderer.domElement );
+        this.controls =  new THREE.OrbitControls( camera, renderer.domElement );
+        this.controls.autoRotate = true;
         
         this.setupXR();
 
