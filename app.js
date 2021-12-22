@@ -37,9 +37,7 @@ class App{
         this.renderer.outputEncoding = THREE.sRGBEncoding;
 		container.appendChild( this.renderer.domElement );
 
-        this.controls =  new THREE.OrbitControls( camera, renderer.domElement );
-        this.controls.target.set(0, 3.5, 0);
-        this.controls.update();
+        
 
         this.setEnvironment();
         
@@ -152,6 +150,10 @@ class App{
                 self.chair.visible = false; 
                 
                 self.loadingBar.visible = false;
+
+                this.controls =  new THREE.OrbitControls( camera, renderer.domElement );
+                this.controls.target.set(0, 3.5, 0);
+                this.controls.update();
 
                 self.renderer.setAnimationLoop( self.render.bind(self) );
 			},
