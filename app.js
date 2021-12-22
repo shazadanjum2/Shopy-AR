@@ -36,10 +36,14 @@ class App{
 		this.renderer.setSize( window.innerWidth, window.innerHeight );
         this.renderer.outputEncoding = THREE.sRGBEncoding;
 		container.appendChild( this.renderer.domElement );
+
+        this.controls =  new THREE.OrbitControls( camera, renderer.domElement );
+        this.controls.target.set(0, 3.5, 0);
+        this.controls.update();
+
         this.setEnvironment();
         
         this.reticle = new THREE.Mesh(
-            
             new THREE.RingBufferGeometry( 0.15, 0.2, 32 ).rotateX( - Math.PI / 2 ),
             new THREE.MeshBasicMaterial()
         );
@@ -48,9 +52,7 @@ class App{
         this.reticle.visible = false;
         this.scene.add( this.reticle );
 
-        //this.controls = new OrbitControls( this.camera, this.renderer.domElement );
-        // this.controls =  new THREE.OrbitControls( camera, renderer.domElement );
-        // this.controls.autoRotate = true;
+        
         
         this.setupXR();
 
@@ -150,8 +152,6 @@ class App{
                 self.chair.visible = false; 
                 
                 self.loadingBar.visible = false;
-
-         
 
                 self.renderer.setAnimationLoop( self.render.bind(self) );
 			},
@@ -269,13 +269,7 @@ class App{
             if ( this.hitTestSource ) this.getHitTestResults( frame );
         }
 
-        
-
         this.renderer.render( this.scene, this.camera );
-        
-        this.controls =  new THREE.OrbitControls( camera, renderer.domElement );
-        this.controls.autoRotate = true;
-        this.controls.update();
 
     }
 }
