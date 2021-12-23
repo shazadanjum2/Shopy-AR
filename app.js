@@ -22,8 +22,10 @@ class App{
 
 		//this.assetsPath = './assets/ar-shop/';
         
-		this.camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 20 );
-		this.camera.position.set( 0, 1.6, 0 );
+		// this.camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 20 );
+		// this.camera.position.set( 0, 1.6, 0 );
+        this.camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 0.1, 100 );
+		this.camera.position.set( 0, 4, 14 );
         
 		this.scene = new THREE.Scene();
 
@@ -155,6 +157,10 @@ class App{
                 // rotWorldMatrix.makeRotationAxis(xAxis.normalize(), Math.PI / 180);
                 // self.chair.matrix = rotWorldMatrix;
                 // self.chair.rotation.setFromRotationMatrix(self.chair.matrix)
+
+                this.controls = new OrbitControls( this.camera, this.renderer.domElement );
+                this.controls.target.set(0, 3.5, 0);
+                this.controls.update();
 
                 self.renderer.setAnimationLoop( self.render.bind(self) );
 			},
