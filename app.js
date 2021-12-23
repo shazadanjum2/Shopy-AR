@@ -158,11 +158,11 @@ class App{
                 // self.chair.matrix = rotWorldMatrix;
                 // self.chair.rotation.setFromRotationMatrix(self.chair.matrix)
 
+                self.renderer.setAnimationLoop( self.render.bind(self) );
+
                 this.controls = new OrbitControls( this.camera, this.renderer.domElement );
                 this.controls.target.set(0, 3.5, 0);
                 this.controls.update();
-
-                self.renderer.setAnimationLoop( self.render.bind(self) );
 			},
 			// called while loading is progressing
 			function ( xhr ) {
