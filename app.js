@@ -129,6 +129,10 @@ class App{
         //this.controls.target.set(0, 3.5, 0);
        // this.controls.update();
         
+       var vector = new THREE.Vector3( 1, 0, 0 );
+        var axis = new THREE.Vector3( 0, 1, 0 );
+        var angle = Math.PI / 2;
+        vector.applyAxisAngle( axis, angle );
 
         this.initAR();
 
