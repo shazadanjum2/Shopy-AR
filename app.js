@@ -49,7 +49,7 @@ class App{
         );
 
         //this.reticle.rotation.xAxis = Math.PI / 180;
-        this.reticle.rotateX(Math.PI / 180);
+        //this.reticle.rotateX(Math.PI / 180);
         this.reticle.matrixAutoUpdate = false;
         this.reticle.visible = false;
         this.scene.add( this.reticle );
@@ -129,29 +129,24 @@ class App{
     
 	showChair(id){
 
-       this.controls = new OrbitControls( this.camera, this.renderer.domElement );
-        this.controls.target.set(0, 3.5, 0);
-       // this.controls.update();
-
-       
-
         this.initAR();
 
-		const loader = new GLTFLoader( ).setPath(this.assetsPath);
+		//const loader = new GLTFLoader( ).setPath(this.assetsPath);
+        const loader = new GLTFLoader( ).setPath('./assets/');
         const self = this;
-        
         this.loadingBar.visible = true;
 		
 		// Load a glTF resource
 		loader.load(
 			// resource URL
-			`chair${id}.glb`,
+            `office-chair.glb`,
+
+			//`chair${id}.glb`,
 			// called when the resource is loaded
 			function ( gltf ) {
 
 				self.scene.add( gltf.scene );
                 self.chair = gltf.scene;
-        
                 self.chair.visible = false; 
                 
                 self.loadingBar.visible = false;
@@ -161,10 +156,6 @@ class App{
                 // rotWorldMatrix.makeRotationAxis(xAxis.normalize(), Math.PI / 180);
                 // self.chair.matrix = rotWorldMatrix;
                 // self.chair.rotation.setFromRotationMatrix(self.chair.matrix)
-
-                // this.controls =  new THREE.OrbitControls( camera, renderer.domElement );
-                // this.controls.target.set(0, 3.5, 0);
-                // this.controls.update();
 
                 self.renderer.setAnimationLoop( self.render.bind(self) );
 			},
@@ -281,6 +272,8 @@ class App{
 
             if ( this.hitTestSource ) this.getHitTestResults( frame );
         }
+
+        this.chair.rotateY( 0.01 );
 
         this.renderer.render( this.scene, this.camera );
         
