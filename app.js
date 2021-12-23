@@ -6,10 +6,13 @@ import { LoadingBar } from './libs/LoadingBar.js';
 import { ControllerGestures } from './libs/three125/ControllerGestures.js';
 import { Player } from './libs/three125/Player.js';
 import { OrbitControls } from './libs/three/jsm/OrbitControls.js';
+import { Stats } from './libs/stats.module.js';
 
 //import { ControllerGestures } from '../../libs/three125/ControllerGestures.js'; 
 //import { Player } from '../../libs/three125/Player.js';
 //import { OrbitControls } from '../../libs/three/jsm/OrbitControls.js';
+//import { Stats } from '../../libs/stats.module.js';
+
 
 
 class App{
@@ -184,7 +187,7 @@ class App{
 				self.knight.object.scale.set(scale, scale, scale); 
 
                 this.gestureFun();
-                
+
                 self.renderer.setAnimationLoop( self.render.bind(self) );
 
                 
