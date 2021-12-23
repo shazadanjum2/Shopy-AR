@@ -186,7 +186,7 @@ class App{
 				const scale = 0.003;
 				self.knight.object.scale.set(scale, scale, scale); 
 
-                this.gestureFun();
+                //this.gestureFun();
 
                 self.renderer.setAnimationLoop( self.render.bind(self) );
 
@@ -318,7 +318,7 @@ class App{
 
         this.renderer.render( this.scene, this.camera );
 
-        //this.gestureFun();
+        this.gestureFun();
         
 
     }
