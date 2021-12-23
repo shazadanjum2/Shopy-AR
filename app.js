@@ -47,8 +47,6 @@ class App{
         );
 
         //this.reticle.rotation.xAxis = Math.PI / 180;
-
-        var controls = new ObjectControls(camera, renderer.domElement, this.reticle);
         
         this.reticle.matrixAutoUpdate = false;
         this.reticle.visible = false;
@@ -129,10 +127,10 @@ class App{
     
 	showChair(id){
 
-//        this.controls = new OrbitControls( this.camera, this.renderer.domElement );
-        //this.controls.target.set(0, 3.5, 0);
+       this.controls = new OrbitControls( this.camera, this.renderer.domElement );
+        this.controls.target.set(0, 3.5, 0);
        // this.controls.update();
-        
+
        
 
         this.initAR();
@@ -283,6 +281,8 @@ class App{
         }
 
         this.renderer.render( this.scene, this.camera );
+        this.controls.update();
+
 
     }
 }
