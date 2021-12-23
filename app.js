@@ -46,7 +46,9 @@ class App{
             new THREE.MeshBasicMaterial()
         );
 
-        this.reticle.rotation.xAxis = Math.PI / 180;
+        //this.reticle.rotation.xAxis = Math.PI / 180;
+
+        var controls = new ObjectControls(camera, renderer.domElement, this.reticle);
         
         this.reticle.matrixAutoUpdate = false;
         this.reticle.visible = false;
@@ -154,11 +156,11 @@ class App{
                 
                 self.loadingBar.visible = false;
 
-                var xAxis = new THREE.Vector3(1,0,0);
-                var rotWorldMatrix = new THREE.Matrix4();
-                rotWorldMatrix.makeRotationAxis(xAxis.normalize(), Math.PI / 180);
-                self.chair.matrix = rotWorldMatrix;
-                self.chair.rotation.setFromRotationMatrix(self.chair.matrix)
+                // var xAxis = new THREE.Vector3(1,0,0);
+                // var rotWorldMatrix = new THREE.Matrix4();
+                // rotWorldMatrix.makeRotationAxis(xAxis.normalize(), Math.PI / 180);
+                // self.chair.matrix = rotWorldMatrix;
+                // self.chair.rotation.setFromRotationMatrix(self.chair.matrix)
 
                 // this.controls =  new THREE.OrbitControls( camera, renderer.domElement );
                 // this.controls.target.set(0, 3.5, 0);
