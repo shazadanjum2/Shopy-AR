@@ -25,7 +25,7 @@ class App{
 		 this.camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 20 );
 		// this.camera.position.set( 0, 1.6, 0 );
         //this.camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 0.1, 100 );
-		this.camera.position.set( 0, 0, 0 );
+		//this.camera.position.set( 0, 0, 0 );
         
 		this.scene = new THREE.Scene();
 
@@ -56,7 +56,17 @@ class App{
         this.reticle.visible = false;
         this.scene.add( this.reticle );
 
+                
+        this.stats = new Stats();
+        document.body.appendChild( this.stats.dom );
         
+        this.origin = new THREE.Vector3();
+        this.euler = new THREE.Euler();
+        this.quaternion = new THREE.Quaternion();
+
+        this.controls = new OrbitControls( this.camera, this.renderer.domElement );
+        this.controls.target.set(0, 3.5, 0);
+        this.controls.update();
         
         this.setupXR();
 
@@ -173,6 +183,8 @@ class App{
 				const scale = 0.003;
 				self.knight.object.scale.set(scale, scale, scale); 
 
+                this.gestureFun();
+                
                 self.renderer.setAnimationLoop( self.render.bind(self) );
 
                 
@@ -293,9 +305,17 @@ class App{
 
         //this.chair.rotateX( 0.01 );
 
+        const dt = this.clock.getDelta();
+        this.stats.update();
+        if ( this.renderer.xr.isPresenting ){
+            this.gestures.update();
+           // this.ui.update();
+        }
+        if ( this.knight !== undefined ) this.knight.update(dt);
+
         this.renderer.render( this.scene, this.camera );
 
-        this.gestureFun();
+        //this.gestureFun();
         
 
     }
