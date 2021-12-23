@@ -37,17 +37,19 @@ class App{
         this.renderer.outputEncoding = THREE.sRGBEncoding;
 		container.appendChild( this.renderer.domElement );
 
+
+        
         
 
         this.setEnvironment();
         
-        this.reticle = new THREE.Mesh(
-            new THREE.RingBufferGeometry( 0.15, 0.2, 32 ).rotateX( - Math.PI / 2 ),
+        this.reticle = new THREE.Mesh( //- Math.PI / 2
+            new THREE.RingBufferGeometry( 0.15, 0.2, 32 ).rotateX( 2*Math.PI ),
             new THREE.MeshBasicMaterial()
         );
 
         //this.reticle.rotation.xAxis = Math.PI / 180;
-        
+        //this.reticle.rotateX(angle);
         this.reticle.matrixAutoUpdate = false;
         this.reticle.visible = false;
         this.scene.add( this.reticle );
@@ -281,7 +283,7 @@ class App{
         }
 
         this.renderer.render( this.scene, this.camera );
-        this.controls.update();
+        
 
 
     }
