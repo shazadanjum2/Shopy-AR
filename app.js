@@ -276,7 +276,7 @@ class App{
             if ( this.hitTestSource ) this.getHitTestResults( frame );
         }
 
-        this.chair.rotateY( 0.01 );
+        this.chair.rotateX( 0.01 );
 
         this.renderer.render( this.scene, this.camera );
 
