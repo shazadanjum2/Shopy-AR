@@ -152,10 +152,11 @@ class App{
                 
                 self.loadingBar.visible = false;
 
-                var angle = Math.PI / 2;
-                self.chair.rotateX(angle);
-                self.chair.rotateY(angle);
-                self.chair.rotateZ(angle);
+                var xAxis = new THREE.Vector3(1,0,0);
+                var rotWorldMatrix = new THREE.Matrix4();
+                rotWorldMatrix.makeRotationAxis(xAxis.normalize(), Math.PI / 180);
+                self.chair.matrix = rotWorldMatrix;
+                self.chair.rotation.setFromRotationMatrix(self.chair.matrix)
 
                 // this.controls =  new THREE.OrbitControls( camera, renderer.domElement );
                 // this.controls.target.set(0, 3.5, 0);
