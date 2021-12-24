@@ -93,7 +93,7 @@ class App{
                 self.knight.object.visible = false;
 				
 				//self.knight.action = 'Dance';
-				const scale = 0.70;
+				const scale = 0.003;
 				self.knight.object.scale.set(scale, scale, scale); 
 				
                 self.loadingBar.visible = false;
@@ -138,8 +138,8 @@ class App{
         let controller, controller1;
         
         function onSessionStart(){
-            self.ui.mesh.position.set( 0, -0.15, -0.3 );
-            //self.ui.mesh.position.set( 0.025, -0.15, -0.017 );
+            //self.ui.mesh.position.set( 0, -0.15, -0.3 );
+            self.ui.mesh.position.set( 0.025, -0.15, -0.017 );
             self.camera.add( self.ui.mesh );
         }
         
