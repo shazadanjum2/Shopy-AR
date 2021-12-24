@@ -17,7 +17,7 @@ class App{
         this.clock = new THREE.Clock();
         
 		//this.camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.01, 20 );
-		this.camera = new THREE.PerspectiveCamera(20, window.innerWidth / window.innerHeight, 0.01, 20 );
+		this.camera = new THREE.PerspectiveCamera(20, window.innerWidth / window.innerHeight, 5, 50 );
 		
 		this.scene = new THREE.Scene();
         
