@@ -23,10 +23,25 @@
 	<body>
         <script src="../../libs/fas.js"></script>
         <script type="module">
+
+var queryString = decodeURIComponent(window.location.search); 
+queryString = queryString.substring(1); 
+var queries = queryString.split("?"); 
+var str ="";// queryString.split("?"); 
+
+for (var i = 0; i < queries.length; i++) 
+{ 
+ // document.write(queries[i] + "<br>"); 
+  str = str+queries[i]
+} 
+
             import { App } from './app.js';
 
             document.addEventListener("DOMContentLoaded", function(){
-                const app = new App();
+
+
+
+                const app = new App(str);
                 window.app = app;
             });
         </script>

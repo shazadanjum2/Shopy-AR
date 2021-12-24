@@ -9,7 +9,7 @@ import { Player } from '../../libs/three125/Player.js';
 import { ControllerGestures } from '../../libs/three125/ControllerGestures.js'; 
 
 class App{
-	constructor(){
+	constructor(id){
 		const container = document.createElement( 'div' );
 		document.body.appendChild( container );
         
@@ -46,7 +46,7 @@ class App{
         this.euler = new THREE.Euler();
         this.quaternion = new THREE.Quaternion();
         
-        this.initScene();
+        this.initScene(id);
         this.setupXR();
         
         window.addEventListener('resize', this.resize.bind(this) );
@@ -63,9 +63,9 @@ class App{
 		loader.load(
 			// resource URL
 			//`knight2.glb`,
-            `office-chair.glb`,
+            //`office-chair.glb`,
             //`chair1.glb`,
-
+            `${id}.glb`,
 			// called when the resource is loaded
 			function ( gltf ) {
 				//const object = gltf.scene.children[5];
