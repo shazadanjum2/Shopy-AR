@@ -9,6 +9,7 @@ import { Player } from '../../libs/three125/Player.js';
 import { ControllerGestures } from '../../libs/three125/ControllerGestures.js'; 
 
 class App{
+
 	constructor(id){
 		const container = document.createElement( 'div' );
 		document.body.appendChild( container );
@@ -45,14 +46,14 @@ class App{
         this.origin = new THREE.Vector3();
         this.euler = new THREE.Euler();
         this.quaternion = new THREE.Quaternion();
-        
+
         this.initScene(id);
         this.setupXR();
         
         window.addEventListener('resize', this.resize.bind(this) );
 	}	
     
-    initScene(){
+    initScene(id){
         this.loadingBar = new LoadingBar();
         
         this.assetsPath = '../../assets/';
