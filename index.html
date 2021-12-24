@@ -123,10 +123,32 @@
               </div>
               <div class="card-footer">
                 <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                <button onclick="window.location.href='start/lecture3_11'+'?office-chair'"><img width="20" height="20" class="card-img-top" src="./assets/camera.png" alt=""></button>
+              
+              <!--  <script>
+                  function test(){
+                    var searchParams = new URLSearchParams(window.location.search);
+                  searchParams.set("foo", "office-chair");
+                  window.location.search = searchParams.toString();
+                  window.location.href='start/lecture3_11'
+                  }
+                </script>
+                -->
+                <button
+                id="office-chair" value="office-chair" 
+                onclick="onClickfun();"><img width="20" height="20" class="card-img-top" src="./assets/camera.png" alt=""></button>
               </div>
 
-<!-- <button class="ar-button" onclick="window.app.showChair(1);"><i class="fas fa-camera"></i></button> -->
+              <script>
+                function onClickfun(){
+                 var modelvalue = document.getElementById("office-chair").value;
+                 console.log(modelvalue);
+                 window.location.href='start/lecture3_11/?chair='+modelvalue;
+                }
+              </script>
+
+
+<!--"window.location.href='start/lecture3_11?chair=office-chair'"
+   <button class="ar-button" onclick="window.app.showChair(1);"><i class="fas fa-camera"></i></button> -->
               
             </div>
           </div>
@@ -293,6 +315,9 @@
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+
 
 </body>
 
