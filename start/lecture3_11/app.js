@@ -64,9 +64,9 @@ class App{
 		loader.load(
 			// resource URL
 			//`knight2.glb`,
-            //`office-chair.glb`,
+            `office-chair.glb`,
             //`chair1.glb`,
-            `${id}.glb`,
+            //`${id}.glb`,
 			// called when the resource is loaded
 			function ( gltf ) {
 				//const object = gltf.scene.children[5];
