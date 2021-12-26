@@ -9,15 +9,13 @@ import { Player } from '../../libs/three125/Player.js';
 import { ControllerGestures } from '../../libs/three125/ControllerGestures.js'; 
 
 class App{
-
 	constructor(id){
 		const container = document.createElement( 'div' );
 		document.body.appendChild( container );
         
         this.clock = new THREE.Clock();
         
-		//this.camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.01, 20 );
-		this.camera = new THREE.PerspectiveCamera(20, window.innerWidth / window.innerHeight, -5, 50 );
+		this.camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.01, 20 );
 		
 		this.scene = new THREE.Scene();
         
@@ -46,7 +44,7 @@ class App{
         this.origin = new THREE.Vector3();
         this.euler = new THREE.Euler();
         this.quaternion = new THREE.Quaternion();
-
+        
         this.initScene(id);
         this.setupXR();
         
@@ -56,7 +54,7 @@ class App{
     initScene(id){
         this.loadingBar = new LoadingBar();
         
-        this.assetsPath = './assets/';
+        this.assetsPath = '../../assets/';
         const loader = new GLTFLoader().setPath(this.assetsPath);
 		const self = this;
 		
@@ -64,14 +62,13 @@ class App{
 		loader.load(
 			// resource URL
 			//`knight2.glb`,
-            `office-chair.glb`,
+            //`office-chair.glb`,
             //`chair1.glb`,
-            //`${id}.glb`,
+            `${id}.glb`,
 			// called when the resource is loaded
 			function ( gltf ) {
-				//const object = gltf.scene.children[5];
-                const object = gltf.scene.children[5];
-
+				const object = gltf.scene.children[5];
+				
 				object.traverse(function(child){
 					if (child.isMesh){
                         child.material.metalness = 0;
@@ -82,8 +79,8 @@ class App{
 				const options = {
 					object: object,
 					speed: 0.5,
-					///animations: gltf.animations,
-					// clip: gltf.animations[0],
+					animations: gltf.animations,
+					clip: gltf.animations[0],
 					app: self,
 					name: 'knight',
 					npc: false
@@ -92,7 +89,7 @@ class App{
 				self.knight = new Player(options);
                 self.knight.object.visible = false;
 				
-				//self.knight.action = 'Dance';
+				self.knight.action = 'Dance';
 				const scale = 0.003;
 				self.knight.object.scale.set(scale, scale, scale); 
 				
@@ -139,7 +136,6 @@ class App{
         
         function onSessionStart(){
             self.ui.mesh.position.set( 0, -0.15, -0.3 );
-            //self.ui.mesh.position.set( 0.025, -0.15, -0.017 );
             self.camera.add( self.ui.mesh );
         }
         
@@ -155,9 +151,7 @@ class App{
             self.ui.updateElement('info', 'tap' );
             if (!self.knight.object.visible){
                 self.knight.object.visible = true;
-                //self.knight.object.position.set( 0, -0.3, -0.5 ).add( ev.position );
-                self.knight.object.position.set( 0, -0.3, -0.5).add( ev.position );
-
+                self.knight.object.position.set( 0, -0.3, -0.5 ).add( ev.position );
                 self.scene.add( self.knight.object ); 
             }
         });
