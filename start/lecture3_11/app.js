@@ -55,7 +55,7 @@ class App{
     initScene(id){
         this.loadingBar = new LoadingBar();
         
-        this.assetsPath = '../../assets/';
+        this.assetsPath = '../../assets/ar-shop/';
         const loader = new GLTFLoader().setPath(this.assetsPath);
 		const self = this;
 		
@@ -154,7 +154,7 @@ class App{
             if (!self.knight.object.visible){
                 self.knight.object.visible = true;
                 //self.knight.object.position.set( 0, -0.3, -0.5 ).add( ev.position );
-                self.knight.object.position.set( 1, 1, 1 ).add( ev.position );
+                self.knight.object.position.set( -1, -1, -1 ).add( ev.position );
 
                 self.scene.add( self.knight.object ); 
             }
