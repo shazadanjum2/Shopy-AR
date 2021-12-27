@@ -16,7 +16,7 @@ class App{
         this.clock = new THREE.Clock();
         
 		//this.camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.01, 20 );
-        this.camera = new THREE.PerspectiveCamera( 90, window.innerWidth / window.innerHeight, 0.01, 20 );//0.01
+        this.camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.01, 20 );//0.01
 
 		this.scene = new THREE.Scene();
         
@@ -56,7 +56,7 @@ class App{
     initScene(id){
         this.loadingBar = new LoadingBar();
         
-        this.assetsPath = '../../assets/ar-shop/';
+        this.assetsPath = '../../assets/ar-shop/';//ar-shop
         const loader = new GLTFLoader().setPath(this.assetsPath);
 		const self = this;
 		
@@ -71,6 +71,9 @@ class App{
 			function ( gltf ) {
 				const object = gltf.scene.children[1];
 				
+                
+                console.log(gltf.scene.children);
+
 				object.traverse(function(child){
 					if (child.isMesh){
                         child.material.metalness = 0;
@@ -84,7 +87,7 @@ class App{
 					// animations: gltf.animations,
 					// clip: gltf.animations[0],
 					app: self,
-					name: '${id}',
+					name: 'knight',
 					npc: false
 				};
 				
