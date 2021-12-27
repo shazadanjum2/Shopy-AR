@@ -25,7 +25,7 @@ class App{
 		this.scene.add( new THREE.HemisphereLight( 0x606060, 0x404040 ) );
 
         const light = new THREE.DirectionalLight( 0xffffff );
-        light.position.set( -1, -3.5, -1 ).normalize();
+        light.position.set( 1, 1, 1 ).normalize();
 		this.scene.add( light );
 			
 		this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true } );
@@ -36,7 +36,8 @@ class App{
 		container.appendChild( this.renderer.domElement );
         
         this.controls = new OrbitControls( this.camera, this.renderer.domElement );
-        this.controls.target.set(0, 3.5, 0);
+        //this.controls.target.set(0, 3.5, 0);
+        this.controls.target.set(0, 0, 0);
 
         this.controls.update();
         
@@ -155,7 +156,7 @@ class App{
             if (!self.knight.object.visible){
                 self.knight.object.visible = true;
                 //self.knight.object.position.set( 0, -0.3, -0.5 ).add( ev.position );
-                self.knight.object.position.set( 0, -0.3, -5 ).add( ev.position );
+                self.knight.object.position.set( 0, -0.1, -5 ).add( ev.position );
 
                 self.scene.add( self.knight.object ); 
             }
