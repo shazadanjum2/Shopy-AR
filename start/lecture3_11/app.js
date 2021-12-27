@@ -180,10 +180,18 @@ class App{
         });
         this.gestures.addEventListener( 'swipe', (ev)=>{
             //console.log( ev );   
-            self.ui.updateElement('info', `swipe ${ev.direction}` );
-            if (self.knight.object.visible){
-                self.knight.object.visible = false;
-                self.scene.remove( self.knight.object ); 
+            // self.ui.updateElement('info', `swipe ${ev.direction}` );
+            // if (self.knight.object.visible){
+            //     self.knight.object.visible = false;
+            //     self.scene.remove( self.knight.object ); 
+            // }
+
+            if (ev.initialise !== undefined){
+                self.startQuaternion = self.knight.object.quaternion.clone();
+            }else{
+                self.knight.object.quaternion.copy( self.startQuaternion );
+                self.knight.object.rotateX( ev.theta );
+                self.ui.updateElement('info', `swipe ${ev.theta.toFixed(3)}`  );
             }
         });
         this.gestures.addEventListener( 'pinch', (ev)=>{
