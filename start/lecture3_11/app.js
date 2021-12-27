@@ -215,7 +215,7 @@ class App{
             }else{
                 self.knight.object.quaternion.copy( self.startQuaternion );
                 //self.knight.object.rotateY( ev.theta );
-                self.knight.object.rotateX( ev.theta );
+                self.knight.object.rotateZ( ev.theta );
 
                 self.ui.updateElement('info', `rotate ${ev.theta.toFixed(3)}`  );
             }
