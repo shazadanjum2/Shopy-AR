@@ -16,7 +16,7 @@ class App{
         this.clock = new THREE.Clock();
         
 		//this.camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.01, 20 );
-        this.camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.01, 20 );//0.01
+        this.camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 20 );//0.01
 
 		this.scene = new THREE.Scene();
         
@@ -69,16 +69,22 @@ class App{
             `${id}.glb`,
 			// called when the resource is loaded
 			function ( gltf ) {
-				const object = gltf.scene.children[1];
+				const object = gltf.scene.children[5];
 				
                 
                 console.log(gltf.scene.children);
 
-				object.traverse(function(child){
+				// object.traverse(function(child){
+				// 	if (child.isMesh){
+                //         child.material.metalness = 0;
+                //         child.material.roughness = 1;
+				// 	}
+				// });
+                object.traverse(function(child){
 					if (child.isMesh){
                         child.material.metalness = 0;
                         child.material.roughness = 1;
-					}
+					} THREE.EqualStencilFunc
 				});
 				
 				const options = {
