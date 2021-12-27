@@ -155,8 +155,7 @@ class App{
             if (!self.knight.object.visible){
                 self.knight.object.visible = true;
                 //self.knight.object.position.set( 0, -0.3, -0.5 ).add( ev.position );
-                self.knight.object.position.set( 0, -1, -4 ).add( ev.position );
-                console.log(0,-0.3,0.5);
+                self.knight.object.position.set( 0, -0.3, -4 ).add( ev.position );
 
                 self.scene.add( self.knight.object ); 
             }
