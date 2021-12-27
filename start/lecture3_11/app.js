@@ -36,8 +36,7 @@ class App{
 		container.appendChild( this.renderer.domElement );
         
         this.controls = new OrbitControls( this.camera, this.renderer.domElement );
-        //this.controls.target.set(0, 3.5, 0);
-        this.controls.target.set(0, 0, 0);
+        this.controls.target.set(0, 3.5, 0);
 
         this.controls.update();
         
@@ -156,7 +155,7 @@ class App{
             if (!self.knight.object.visible){
                 self.knight.object.visible = true;
                 //self.knight.object.position.set( 0, -0.3, -0.5 ).add( ev.position );
-                self.knight.object.position.set( 0, -0.1, -5 ).add( ev.position );
+                self.knight.object.position.set( 1, 0, -5 ).add( ev.position );
 
                 self.scene.add( self.knight.object ); 
             }
