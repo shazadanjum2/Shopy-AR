@@ -16,7 +16,7 @@ class App{
         this.clock = new THREE.Clock();
         
 		//this.camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.01, 20 );
-        this.camera = new THREE.PerspectiveCamera( 90, window.innerWidth / window.innerHeight, 0.01, 20 );//0.01
+        this.camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.01, 20 );//0.01
 
 		this.scene = new THREE.Scene();
         
@@ -25,7 +25,7 @@ class App{
 		this.scene.add( new THREE.HemisphereLight( 0x606060, 0x404040 ) );
 
         const light = new THREE.DirectionalLight( 0xffffff );
-        light.position.set( 1, 1, 1 ).normalize();
+        light.position.set( -1, -1, -1 ).normalize();
 		this.scene.add( light );
 			
 		this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true } );
