@@ -166,8 +166,8 @@ class App{
                 //self.knight.object.position.set( 0, -0.3, -0.5 ).add( ev.position );
 
 
-                self.knight.object.position.set( 0, 0.3, -5 ).add( ev.position );
-                self.knight.object.rotateX( 2 );
+                self.knight.object.position.set( 0, 0, -5 ).add( ev.position );
+                self.knight.object.rotateX( 1.9 );
 
                 self.scene.add( self.knight.object ); 
             }
