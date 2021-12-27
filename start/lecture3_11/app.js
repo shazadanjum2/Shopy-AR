@@ -155,7 +155,7 @@ class App{
             if (!self.knight.object.visible){
                 self.knight.object.visible = true;
                 //self.knight.object.position.set( 0, -0.3, -0.5 ).add( ev.position );
-                self.knight.object.position.set( 1, 1, -5 ).add( ev.position );
+                self.knight.object.position.set( 1, -1, -5 ).add( ev.position );
 
                 self.scene.add( self.knight.object ); 
             }
@@ -185,14 +185,6 @@ class App{
             //     self.knight.object.visible = false;
             //     self.scene.remove( self.knight.object ); 
             // }
-
-            if (ev.initialise !== undefined){
-                self.startQuaternion = self.knight.object.quaternion.clone();
-            }else{
-                self.knight.object.quaternion.copy( self.startQuaternion );
-                self.knight.object.rotateX( ev.theta );
-                self.ui.updateElement('info', `swipe ${ev.theta.toFixed(3)}`  );
-            }
         });
         this.gestures.addEventListener( 'pinch', (ev)=>{
             //console.log( ev );  
