@@ -37,7 +37,7 @@ class App{
         
         this.controls = new OrbitControls( this.camera, this.renderer.domElement );
         //this.controls.target.set(0, 3.5, 0);
-        this.controls.target.set(-1, -1, -1);
+        this.controls.target.set(3.5, 0, 0);
         console.log('1,1,1');
 
         this.controls.update();
