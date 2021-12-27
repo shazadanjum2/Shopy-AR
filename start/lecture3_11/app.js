@@ -16,7 +16,7 @@ class App{
         this.clock = new THREE.Clock();
         
 		//this.camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.01, 20 );
-        this.camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 20 );//0.01
+        this.camera = new THREE.PerspectiveCamera( 90, window.innerWidth / window.innerHeight, 0.01, 20 );//0.01
 
 		this.scene = new THREE.Scene();
         
@@ -155,7 +155,7 @@ class App{
             if (!self.knight.object.visible){
                 self.knight.object.visible = true;
                 //self.knight.object.position.set( 0, -0.3, -0.5 ).add( ev.position );
-                self.knight.object.position.set( 0, -0.3, -4 ).add( ev.position );
+                self.knight.object.position.set( 0, -0.3, -5 ).add( ev.position );
 
                 self.scene.add( self.knight.object ); 
             }
