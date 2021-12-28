@@ -69,10 +69,12 @@ class App{
             `${id}.glb`,
 			// called when the resource is loaded
 			function ( gltf ) {
-				const object = gltf.scene.children[5];
-				
-                
-                console.log(gltf.scene.children);
+				//const object = gltf.scene.children[5];
+				var object=gltf.scene.children[1];
+                let length = gltf.scene.children.length;
+                console.log( length);
+                console.log( gltf.scene.children);
+                //if(gltf.scene.children[8].)
 
 				// object.traverse(function(child){
 				// 	if (child.isMesh){
@@ -80,13 +82,21 @@ class App{
                 //         child.material.roughness = 1;
 				// 	}
 				// });
-                object.traverse(function(child){
+                gltf.scene.traverse(function(child){
 					if (child.isMesh){
                         child.material.metalness = 0;
                         child.material.roughness = 1;
-					} THREE.EqualStencilFunc
+                        console.log('Mesh child');
+
+					} 
+                    // else if(child=='Object3D'){
+                    //         object = child;
+                    //         console.log('3d object');
+                    // }
 				});
 				
+                
+
 				const options = {
 					object: object,
 					speed: 0.5,
@@ -166,7 +176,7 @@ class App{
                 //self.knight.object.position.set( 0, -0.3, -0.5 ).add( ev.position );
 
 
-                self.knight.object.position.set( 0, 0, -5 ).add( ev.position );
+                self.knight.object.position.set( 0, -1, -5 ).add( ev.position );
                 self.knight.object.rotateX( 2 );
 
                 self.scene.add( self.knight.object ); 
