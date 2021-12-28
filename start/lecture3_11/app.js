@@ -114,7 +114,8 @@ class App{
                 self.knight.object.visible = false;
 				
 				//self.knight.action = 'Dance';
-				const scale = 0.003;
+				//const scale = 0.003;
+                const scale = 0.4;
 				self.knight.object.scale.set(scale, scale, scale); 
 				
                 self.loadingBar.visible = false;
@@ -185,7 +186,7 @@ class App{
 
 
                 self.knight.object.position.set( 0, -1, -5 ).add( ev.position );
-                //self.knight.object.rotateX( 2 );
+                self.knight.object.rotateX( 2 );
 
                 self.scene.add( self.knight.object ); 
             }
