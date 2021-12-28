@@ -84,11 +84,11 @@ class App{
                 //         child.material.roughness = 1;
 				// 	}
 				// });
-                gltf.scene.traverse(function(child){
+                object.traverse(function(child){
 					if (child.isMesh){
                         child.material.metalness = 0;
                         child.material.roughness = 1;
-                        console.log('Mesh child');
+                        //console.log('Mesh child');
 
 					} 
                     // else if(child=='Object3D'){
