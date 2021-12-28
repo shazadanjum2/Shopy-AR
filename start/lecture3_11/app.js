@@ -1,6 +1,7 @@
 import * as THREE from '../../libs/three125/three.module.js';
 import { OrbitControls } from '../../libs/three125/OrbitControls.js';
 import { GLTFLoader } from '../../libs/three125/GLTFLoader.js';
+
 import { Stats } from '../../libs/stats.module.js';
 import { CanvasUI } from '../../libs/three125/CanvasUI.js'
 import { ARButton } from '../../libs/ARButton.js';
@@ -135,6 +136,11 @@ class App{
         
         this.createUI();
     }
+
+
+
+
+
     
     createUI() {
         
@@ -179,7 +185,7 @@ class App{
 
 
                 self.knight.object.position.set( 0, -1, -5 ).add( ev.position );
-                self.knight.object.rotateX( 2 );
+                //self.knight.object.rotateX( 2 );
 
                 self.scene.add( self.knight.object ); 
             }
