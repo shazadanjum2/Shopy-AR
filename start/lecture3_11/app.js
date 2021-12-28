@@ -70,7 +70,7 @@ class App{
 			// called when the resource is loaded
 			function ( gltf ) {
 				//const object = gltf.scene.children[5];
-				var object=gltf.scene.children[1];
+				const object=gltf.scene.children[1];
                 let length = gltf.scene.children.length;
                 console.log( length);
                 console.log( gltf.scene.children);
