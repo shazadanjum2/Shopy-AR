@@ -115,7 +115,7 @@ class App{
 				
 				//self.knight.action = 'Dance';
 				//const scale = 0.003;
-                const scale = 0.3;
+                const scale = 0.03;
 				self.knight.object.scale.set(scale, scale, scale); 
 				
                 self.loadingBar.visible = false;
