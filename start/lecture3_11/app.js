@@ -120,9 +120,9 @@ class App{
                 if("chair1"==id || "chair2"==id || "chair3"==id || "chair4"==id || "chair5"==id || "chair6"==id){
                     const scale = 2;
 				    self.knight.object.scale.set(scale, scale, scale);
-                    
+
                     if( "chair2"==id ||  "chair5"==id){
-                        self.knight.object.rotateX( 1 );
+                        self.knight.object.rotateX( -1 );
                     } 
 
                 } else{
