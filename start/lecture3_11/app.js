@@ -133,7 +133,7 @@ class App{
                     const scale = 0.1;
 				    self.knight.object.scale.set(scale, scale, scale);
                 } else if("threeseater"==id ){
-                    const scale = 3;
+                    const scale = 2;
 				    self.knight.object.scale.set(scale, scale, scale);
                 }
                 else{
