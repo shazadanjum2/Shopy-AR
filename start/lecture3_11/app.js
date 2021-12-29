@@ -117,7 +117,10 @@ class App{
 				//const scale = 0.003;
                 //const scale = 0.03;
 
-                if("chair1"==id || "chair4"==id  || "chair6"==id || "midcentury2"==id || "dining_chair"==id){
+                if("chair1"==id || "chair4"==id  || "chair6"==id ){
+                    const scale = 2;
+				    self.knight.object.scale.set(scale, scale, scale);
+                }else if("dining_chair"==id){
                     const scale = 2;
 				    self.knight.object.scale.set(scale, scale, scale);
                 } else if("midcentury2"==id){
@@ -127,7 +130,7 @@ class App{
                     const scale = 0.01;
 				    self.knight.object.scale.set(scale, scale, scale);
                 }else if("table"==id){
-                    const scale = 0.07;
+                    const scale = 0.09;
 				    self.knight.object.scale.set(scale, scale, scale);
                 }
                 else{
@@ -209,24 +212,26 @@ class App{
                 // self.knight.object.position.set( 0, -1, -4 ).add( ev.position );
                 // self.knight.object.rotateX( 1.5 );
 
-                if("chair1"==id || "chair4"==id || "chair6"==id || "dining_chair"==id){
+                if("chair1"==id || "chair4"==id || "chair6"==id ){
 
                     self.knight.object.position.set( 0, -1, -3 ).add( ev.position );
                     self.knight.object.rotateX( 1.5 );
-                    if("dining_chair"==id){
-                        self.knight.object.rotateZ( 1 );
-                    }       
-                    
-                
-                } else if("wingchair"==id){
+                          
+                } else if("dining_chair"==id){
+                    self.knight.object.position.set( 0, -1, -3 ).add( ev.position );
+                    self.knight.object.rotateX( 1.5 );
+
+                    self.knight.object.rotateZ( 1.3 );
+
+                }  else if("wingchair"==id){
                     self.knight.object.position.set( 0, -1, -3 ).add( ev.position );
                     self.knight.object.rotateX( 1.5 );
                 } else if("midcentury2"==id){
-                    self.knight.object.position.set( 0, -7, -5 ).add( ev.position );
+                    self.knight.object.position.set( 0, -5, -5 ).add( ev.position );
                     self.knight.object.rotateX( 1.5 );
                 }
                 else if("table"==id){
-                    self.knight.object.position.set( 0, -3, -3 ).add( ev.position );
+                    self.knight.object.position.set( 0, -3, -4 ).add( ev.position );
                     self.knight.object.rotateX( 1.5 );
                 }
                 else{
