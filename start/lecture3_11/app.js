@@ -133,7 +133,7 @@ class App{
                     const scale = 0.1;
 				    self.knight.object.scale.set(scale, scale, scale);
                 } else if("threeseater"==id ){
-                    const scale = 2;
+                    const scale = 4;
 				    self.knight.object.scale.set(scale, scale, scale);
                 }
                 else{
@@ -224,7 +224,7 @@ class App{
                     self.knight.object.position.set( 0, -1, -3 ).add( ev.position );
                     self.knight.object.rotateX( 1.5 );
 
-                    self.knight.object.rotateZ( 1.5 );
+                    self.knight.object.rotateZ( 0.5 );
 
                 }  else if("wingchair"==id){
                     self.knight.object.position.set( 0, -1, -3 ).add( ev.position );
@@ -238,7 +238,7 @@ class App{
                     self.knight.object.rotateX( 1.5 );
                 } else if("threeseater"==id ){
 
-                    self.knight.object.position.set( 0, -1, -3 ).add( ev.position );
+                    self.knight.object.position.set( 0, -1, -1 ).add( ev.position );
                     self.knight.object.rotateX( 1.5 );
                           
                 }
