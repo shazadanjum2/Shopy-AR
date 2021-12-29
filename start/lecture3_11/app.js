@@ -120,12 +120,15 @@ class App{
                 if("chair1"==id || "chair4"==id  || "chair6"==id || "midcentury2"==id){
                     const scale = 2;
 				    self.knight.object.scale.set(scale, scale, scale);
-                } else if("wingchair"==id){
-                    const scale = 0.003;
+                } else if("midcentury2"==id){
+                    const scale = 3;
+				    self.knight.object.scale.set(scale, scale, scale);
+                }else if("wingchair"==id){
+                    const scale = 0.01;
 				    self.knight.object.scale.set(scale, scale, scale);
                 }
                 else{
-                    const scale = 0.07;
+                    const scale = 0.03;
 				    self.knight.object.scale.set(scale, scale, scale);
                 }
 
@@ -212,7 +215,7 @@ class App{
                     self.knight.object.position.set( 0, -1, -3 ).add( ev.position );
                     self.knight.object.rotateX( 1.5 );
                 } else if("midcentury2"==id){
-                    self.knight.object.position.set( 0, -1, -3 ).add( ev.position );
+                    self.knight.object.position.set( 0, -1, -5 ).add( ev.position );
                     self.knight.object.rotateX( 1.5 );
                 }
                 
