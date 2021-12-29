@@ -204,7 +204,9 @@ class App{
                     self.knight.object.position.set( 0, -1, -3 ).add( ev.position );
                     if( "chair2"!==id ||  "chair5"!==id){
                         self.knight.object.rotateX( 1.5 );
-                    } 
+                    } else{
+                        self.knight.object.rotateX( 1 );
+                    }
 
                 
                 } else{
