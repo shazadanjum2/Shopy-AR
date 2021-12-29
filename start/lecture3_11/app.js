@@ -49,7 +49,7 @@ class App{
         this.quaternion = new THREE.Quaternion();
         
         this.initScene(id);
-        this.setupXR();
+        this.setupXR(id);
         
         window.addEventListener('resize', this.resize.bind(this) );
 	}	
