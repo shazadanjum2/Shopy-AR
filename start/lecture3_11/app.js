@@ -117,10 +117,14 @@ class App{
 				//const scale = 0.003;
                 //const scale = 0.03;
 
-                if("chair1"==id || "chair2"==id || "chair3"==id || "chair4"==id || "chair5"==id || "chair6"==id){
+                if("chair1"==id || "chair4"==id  || "chair6"==id || "midcentury2"==id){
                     const scale = 2;
 				    self.knight.object.scale.set(scale, scale, scale);
-                } else{
+                } else if("wingchair"==id){
+                    const scale = 0.01;
+				    self.knight.object.scale.set(scale, scale, scale);
+                }
+                else{
                     const scale = 0.03;
 				    self.knight.object.scale.set(scale, scale, scale);
                 }
@@ -199,18 +203,18 @@ class App{
                 // self.knight.object.position.set( 0, -1, -4 ).add( ev.position );
                 // self.knight.object.rotateX( 1.5 );
 
-                if("chair1"==id || "chair2"==id || "chair3"==id || "chair4"==id || "chair5"==id || "chair6"==id){
+                if("chair1"==id || "chair4"==id || "chair6"==id){
 
                     self.knight.object.position.set( 0, -1, -3 ).add( ev.position );
-                    if( "chair2"!==id ||  "chair5"!==id){
-                        self.knight.object.rotateX( 1.5 );
-                    } else{
-                        self.knight.object.rotateX( -1 );
-                    }
-
+                    self.knight.object.rotateX( 1.5 );
                 
-                } else{
-                    self.knight.object.position.set( 0, -1, -4 ).add( ev.position );
+                } else if("wingchair"==id){
+                    self.knight.object.position.set( 0, -3, -6 ).add( ev.position );
+                    self.knight.object.rotateX( 1.5 );
+                }
+                
+                else{
+                    self.knight.object.position.set( 0, -1, -5 ).add( ev.position );
                     self.knight.object.rotateX( 1.5 );
                 }
 
