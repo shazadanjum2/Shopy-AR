@@ -120,9 +120,6 @@ class App{
                 if("chair1"==id || "chair2"==id || "chair3"==id || "chair4"==id || "chair5"==id || "chair6"==id){
                     const scale = 2;
 				    self.knight.object.scale.set(scale, scale, scale);
-
-                    
-
                 } else{
                     const scale = 0.03;
 				    self.knight.object.scale.set(scale, scale, scale);
@@ -199,8 +196,8 @@ class App{
                 self.knight.object.visible = true;
                 //self.knight.object.position.set( 0, -0.3, -0.5 ).add( ev.position );
 
-                self.knight.object.position.set( 0, -1, -4 ).add( ev.position );
-                self.knight.object.rotateX( 1.5 );
+                // self.knight.object.position.set( 0, -1, -4 ).add( ev.position );
+                // self.knight.object.rotateX( 1.5 );
 
                 if("chair1"==id || "chair2"==id || "chair3"==id || "chair4"==id || "chair5"==id || "chair6"==id){
 
