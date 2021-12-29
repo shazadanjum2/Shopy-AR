@@ -202,9 +202,9 @@ class App{
                 if("chair1"==id || "chair2"==id || "chair3"==id || "chair4"==id || "chair5"==id || "chair6"==id){
 
                     self.knight.object.position.set( 0, -1, -3 ).add( ev.position );
-                    if( "chair2"!=id ||  "chair5"!=id){
+                    if( "chair2"!==id ||  "chair5"!==id){
                         self.knight.object.rotateX( 1.5 );
-                    }
+                    } 
 
                 
                 } else{
