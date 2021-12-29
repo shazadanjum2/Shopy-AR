@@ -120,6 +120,10 @@ class App{
                 if("chair1"==id || "chair2"==id || "chair3"==id || "chair4"==id || "chair5"==id || "chair6"==id){
                     const scale = 2;
 				    self.knight.object.scale.set(scale, scale, scale);
+                    
+                    if( "chair2"==id ||  "chair5"==id){
+                        self.knight.object.rotateX( 1 );
+                    } 
 
                 } else{
                     const scale = 0.03;
@@ -199,15 +203,8 @@ class App{
 
 
                 self.knight.object.position.set( 0, -1, -3 ).add( ev.position );
+                self.knight.object.rotateX( 1.5 );
                 
-
-                if( "chair2"==id ||  "chair5"==id){
-                    
-                    self.knight.object.rotateX( 1 );
-
-                } else{
-                    self.knight.object.rotateX( 1.5 );
-                }
 
                 self.scene.add( self.knight.object ); 
             }
