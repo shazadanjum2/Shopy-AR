@@ -203,6 +203,7 @@ class App{
 
                 if( "chair2"==id ||  "chair5"==id){
                     
+                    self.knight.object.rotateX( 1 );
 
                 } else{
                     self.knight.object.rotateX( 1.5 );
