@@ -136,7 +136,7 @@ class App{
                     const scale = 0.8;
 				    self.knight.object.scale.set(scale, scale, scale);
                 } else if("blackbeauty"==id){
-                    const scale = 0.3;
+                    const scale = 0.04;
 				    self.knight.object.scale.set(scale, scale, scale);
                 }
                 else{
@@ -227,14 +227,14 @@ class App{
                     self.knight.object.position.set( 0, -1, -3 ).add( ev.position );
                     self.knight.object.rotateX( 1.5 );
 
-                    self.knight.object.rotateZ( 2.5 );
+                    self.knight.object.rotateZ( 3 );
 
                 } else if("blackbeauty"==id ){
 
                     self.knight.object.position.set( 0, -1, -4 ).add( ev.position );
                     self.knight.object.rotateX( 1.5 );
                     
-                    self.knight.object.rotateZ( 5 );
+                    self.knight.object.rotateZ( 4 );
                 }  else if("wingchair"==id){
                     self.knight.object.position.set( 0, -1, -3 ).add( ev.position );
                     self.knight.object.rotateX( 1.5 );
