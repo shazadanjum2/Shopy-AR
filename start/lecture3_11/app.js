@@ -176,7 +176,7 @@ class App{
         this.ui = ui;
     }
     
-    setupXR(){
+    setupXR(id){
         this.renderer.xr.enabled = true; 
         
         const self = this;
