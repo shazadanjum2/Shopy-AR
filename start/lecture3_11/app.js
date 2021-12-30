@@ -141,7 +141,7 @@ class App{
                     const scale = 0.08;
 				    self.knight.object.scale.set(scale, scale, scale);
                 } else if("royalsofa2"==id){
-                    const scale = 0.02;
+                    const scale = 0.01;
 				    self.knight.object.scale.set(scale, scale, scale);
                 }
                 else{
