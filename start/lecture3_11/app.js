@@ -141,7 +141,7 @@ class App{
                     const scale = 0.08;
 				    self.knight.object.scale.set(scale, scale, scale);
                 } else if("royalsofa2"==id){
-                    const scale = 0.003;
+                    const scale = 0.01;
 				    self.knight.object.scale.set(scale, scale, scale);
                 }
                 else{
@@ -256,7 +256,7 @@ class App{
                     self.knight.object.rotateX( 1.5 );
                           
                 } else if("royalsofa2"==id){
-                    self.knight.object.position.set( 0, -5, -5 ).add( ev.position );
+                    self.knight.object.position.set( 0, -3, -6 ).add( ev.position );
                     self.knight.object.rotateX( 1.5 );
 
                     self.knight.object.rotateZ( 3 );
