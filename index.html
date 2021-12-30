@@ -15,6 +15,11 @@
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
 
+
+  <!-- Model viewer Script-->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+
   <title>AR Shop Homepage - Lecture 7.3</title>
 
   <!-- Bootstrap core CSS -->
@@ -23,11 +28,23 @@
   <!-- Custom styles for this template -->
   <link href="css/shop-homepage.css" rel="stylesheet">
 
+  <!-- Model viewer Style-->
+  <style>
+    .box {display:flex;}
+    mode-viewer {width: 1000px; height: 1000px; margin:200px, auto}
+</style>
+
 </head>
 
 <body>
+
+
+
     <script src="./libs/fas.js"></script>
     <script type="module">
+
+
+
         import { App } from './app.js';
 
         document.addEventListener("DOMContentLoaded", function(){
@@ -80,6 +97,14 @@
       </div>
       <!-- /.col-lg-3 -->
 
+
+
+
+
+
+
+
+
       <div class="col-lg-9">
 
         <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
@@ -108,6 +133,21 @@
             <span class="sr-only">Next</span>
           </a>
         </div>
+
+
+      <!-- Model viewer Body-->
+        <body >
+          <div  class = "box">
+              <div>Model Preview     </div>
+              <div  style="border:1px solid black">
+                  <model-viewer camera-controls alt="Model" src="./assets/ar-shop/chair1.glb">
+                  </model-viewer>
+              </div>
+          </div>
+      </body>
+
+
+
 
         <div class="row">
 
@@ -151,11 +191,7 @@
    <button class="ar-button" onclick="window.app.showChair(1);"><i class="fas fa-camera"></i></button> -->
               
             </div>
-          </div>
-
-          
-
-          
+          </div>      
 
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
@@ -176,10 +212,7 @@
 
               </div>
             </div>
-          </div>
-          
-
-          
+          </div>        
 
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">

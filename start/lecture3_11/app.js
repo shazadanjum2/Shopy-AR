@@ -8,8 +8,10 @@ import { ARButton } from '../../libs/ARButton.js';
 import { LoadingBar } from '../../libs/LoadingBar.js';
 import { Player } from '../../libs/three125/Player.js';
 import { ControllerGestures } from '../../libs/three125/ControllerGestures.js'; 
-
-class App{
+//https://tympanus.net/codrops/2019/09/17/how-to-build-a-color-customizer-app-for-a-3d-model-with-three-js/
+//https://medium.com/@akashkuttappa/using-3d-models-with-ar-js-and-a-frame-84d462efe498
+//https://stackoverflow.com/questions/69185593/issues-displaying-glb-model-on-html
+class App{    
 	constructor(id){
 		const container = document.createElement( 'div' );
 		document.body.appendChild( container );
@@ -127,7 +129,7 @@ class App{
                     const scale = 3;
 				    self.knight.object.scale.set(scale, scale, scale);
                 }else if("wingchair"==id){
-                    const scale = 0.03;
+                    const scale = 0.02;
 				    self.knight.object.scale.set(scale, scale, scale);
                 }else if("table"==id){
                     const scale = 0.1;
@@ -137,6 +139,9 @@ class App{
 				    self.knight.object.scale.set(scale, scale, scale);
                 } else if("blackbeauty"==id){
                     const scale = 0.08;
+				    self.knight.object.scale.set(scale, scale, scale);
+                } else if("royalsofa2"==id){
+                    const scale = 0.003;
 				    self.knight.object.scale.set(scale, scale, scale);
                 }
                 else{
@@ -236,7 +241,7 @@ class App{
                     
                     self.knight.object.rotateZ( 4.5 );
                 }  else if("wingchair"==id){
-                    self.knight.object.position.set( 0, -1, -3 ).add( ev.position );
+                    self.knight.object.position.set( 0, -1, -4 ).add( ev.position );
                     self.knight.object.rotateX( 1.5 );
                 } else if("midcentury2"==id){
                     self.knight.object.position.set( 0, -3, -5 ).add( ev.position );
@@ -250,12 +255,18 @@ class App{
                     self.knight.object.position.set( 0, -1, -4 ).add( ev.position );
                     self.knight.object.rotateX( 1.5 );
                           
+                } else if("royalsofa2"==id){
+                    self.knight.object.position.set( 0, -5, -5 ).add( ev.position );
+                    self.knight.object.rotateX( 1.5 );
+
+                    self.knight.object.rotateZ( 3 );
+
                 }
                 else{
                     self.knight.object.position.set( 0, -1, -5 ).add( ev.position );
                     self.knight.object.rotateX( 1.5 );
                 }
-
+                
                 
                 
 
