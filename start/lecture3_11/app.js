@@ -144,7 +144,7 @@ class App{
                     const scale = 0.01;
 				    self.knight.object.scale.set(scale, scale, scale);
                 }else if("tuxedo"==id){
-                    const scale = 0.004;
+                    const scale = 0.002;
 				    self.knight.object.scale.set(scale, scale, scale);
                 }
                 else{
